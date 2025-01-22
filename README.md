@@ -3,8 +3,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://github.com/ansible/awx-operator/workflows/CI/badge.svg?event=push)](https://github.com/ansible/awx-operator/actions)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-Ansible-yellow.svg)](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
-[![AWX Mailing List](https://img.shields.io/badge/mailing%20list-AWX-orange.svg)](https://groups.google.com/g/awx-project)
-[![IRC Chat - #ansible-awx](https://img.shields.io/badge/IRC-%23ansible--awx-blueviolet.svg)](https://libera.chat)
 
 An [Ansible AWX](https://github.com/ansible/awx) operator for Kubernetes built with [Operator SDK](https://github.com/operator-framework/operator-sdk) and Ansible.
 
@@ -21,6 +19,8 @@ The AWX Operator documentation is available at <https://ansible.readthedocs.io/p
 Please visit [our contributing guidelines](https://github.com/ansible/awx-operator/blob/devel/CONTRIBUTING.md).
 
 For docs changes, create PRs on the appropriate files in the `/docs` folder.
+
+The development environment consists of running an [`up.sh`](https://github.com/ansible/awx-operator/blob/devel/up.sh) and a [`down.sh`](https://github.com/ansible/awx-operator/blob/devel/down.sh) script, which applies or deletes yaml on the Openshift or K8s cluster you are connected to. See the [development.md](https://github.com/ansible/awx-operator/blob/devel/docs/development.md) for information on how to deploy and test changes from your branch.
 
 ## Author
 

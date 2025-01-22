@@ -18,7 +18,7 @@
     namespace: "{{ ansible_operator_meta.namespace }}"
     pod: "{{ awx_web_pod_name }}"
     container: "{{ ansible_operator_meta.name }}-web"
-    command: awx-manage createsuperuser --username={{ admin_user | quote }} --email={{ admin_email | quote }} --noinput
+    command: bash -c "ANSIBLE_REVERSE_RESOURCE_SYNC=false awx-manage createsuperuser --username={{ admin_user | quote }} --email={{ admin_email | quote }} --noinput"
   register: result
   changed_when: "'That username is already taken' not in result.stderr"
   failed_when: "'That username is already taken' not in result.stderr and 'Superuser created successfully' not in result.stdout"
@@ -114,7 +114,7 @@
     pod: "{{ awx_web_pod_name }}"
     container: "{{ ansible_operator_meta.name }}-web"
     command: >-
-      bash -c "awx-manage create_preload_data"
+      bash -c "ANSIBLE_REVERSE_RESOURCE_SYNC=false awx-manage create_preload_data"
   register: cdo
   changed_when: "'added' in cdo.stdout"
   when: create_preload_data | bool
